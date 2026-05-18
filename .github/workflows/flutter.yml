@@ -1,4 +1,4 @@
-name: Build Ventus POS APK
+name: Build Flutter POS APK
 
 on:
   push:
@@ -9,16 +9,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.19.6"
 
-      - name: Show Flutter version
-        run: flutter --version
+      - name: Create Flutter project
+        run: flutter create .
 
       - name: Get dependencies
         run: flutter pub get
